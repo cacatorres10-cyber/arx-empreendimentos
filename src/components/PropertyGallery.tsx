@@ -28,7 +28,7 @@ export default function PropertyGallery({
           >
             <Image
               src={images[active]}
-              alt={`${title} — foto ${active + 1}`}
+              alt={`${title}, foto ${active + 1}`}
               fill
               priority
               sizes="(max-width: 1024px) 100vw, 66vw"
@@ -53,7 +53,7 @@ export default function PropertyGallery({
             >
               <Image
                 src={src}
-                alt={`${title} — miniatura ${i + 1}`}
+                alt={`${title}, miniatura ${i + 1}`}
                 fill
                 sizes="20vw"
                 className="object-cover"

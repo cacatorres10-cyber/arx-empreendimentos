@@ -143,7 +143,7 @@ export default function ContactCTA() {
                   <option value="">Ainda não sei / quero ajuda</option>
                   {properties.map((p) => (
                     <option key={p.slug} value={p.title}>
-                      {p.title} — {p.city}
+                      {p.title} · {p.city}
                     </option>
                   ))}
                   <option value="Tenho um terreno para construir">

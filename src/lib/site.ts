@@ -1,5 +1,5 @@
 /**
- * Configuração central da marca — ARX Construtora.
+ * Configuração central da marca ARX Empreendimentos.
  * Ajuste telefone/textos quando confirmar os dados finais.
  */
 export const site = {
@@ -10,11 +10,11 @@ export const site = {
   region: "SC",
   // WhatsApp internacional, só dígitos (55 = Brasil, 47 = DDD).
   // ATENÇÃO: cliente informou "47 9714-8147" (8 dígitos). Celular BR tem 9.
-  // Confirmar o dígito faltante — provável 47 9 9714-8147 ou similar.
+  // Confirmar o digito faltante. Provavel 47 9 9714-8147 ou similar.
   whatsapp: "554797148147",
   whatsappDisplay: "(47) 9714-8147",
   email: "contato@arxconstrutora.com",
-  address: "Rua Félix Krieger, 640 — Gravatá, Navegantes/SC",
+  address: "Rua Félix Krieger, 640, Gravatá, Navegantes/SC",
   instagram: "https://www.instagram.com/arx.construtora/",
   site: "https://www.arxconstrutora.com",
   foundedYear: 2015,

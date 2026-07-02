@@ -64,7 +64,7 @@ export default function Hero() {
             className="mt-6 max-w-xl text-lg leading-relaxed text-on-night-muted"
           >
             Empreendimentos de alto padrão em Navegantes e região, com obra
-            própria da ARX — do projeto à entrega das chaves.
+            própria da ARX, do projeto à entrega das chaves.
           </motion.p>
 
           <motion.div

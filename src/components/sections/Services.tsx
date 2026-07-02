@@ -12,7 +12,7 @@ const services = [
     number: "02",
     title: "Projeto autoral",
     description:
-      "Arquitetura contemporânea assinada, que respeita o terreno, a luz e a materialidade — cada obra é única.",
+      "Arquitetura contemporânea assinada, que respeita o terreno, a luz e a materialidade. Cada obra é única.",
   },
   {
     number: "03",
@@ -24,7 +24,7 @@ const services = [
     number: "04",
     title: "Pós-obra e entrega",
     description:
-      "Vistoria assistida, manutenção e relacionamento contínuo — nosso compromisso não termina na entrega das chaves.",
+      "Vistoria assistida, manutenção e relacionamento contínuo. Nosso compromisso não termina na entrega das chaves.",
   },
 ];
 

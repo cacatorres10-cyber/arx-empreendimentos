@@ -28,7 +28,7 @@ export default async function EmpreendimentosPage({
       <section className="bg-night pt-36 pb-16 lg:pt-44 lg:pb-20">
         <div className="mx-auto max-w-7xl px-5 lg:px-8">
           <span className="eyebrow eyebrow-on-night">Portfólio ARX</span>
-          <h1 className="font-display mt-4 text-5xl text-on-night sm:text-6xl">
+          <h1 className="font-display mt-4 break-words text-4xl text-on-night sm:text-5xl lg:text-6xl">
             Empreendimentos
           </h1>
           <p className="mt-5 max-w-xl text-base leading-relaxed text-on-night-muted">

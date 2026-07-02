@@ -21,7 +21,7 @@ const inter = Inter({
 
 export const metadata: Metadata = {
   title: {
-    default: `${site.name} — ${site.tagline}`,
+    default: `${site.name} · ${site.tagline}`,
     template: `%s | ${site.name}`,
   },
   description: `${site.name}: construtora e incorporadora de alto padrão em ${site.city} e litoral de Santa Catarina. Arquitetura autoral, obra própria e acabamento de exceção.`,
@@ -46,7 +46,7 @@ export default function RootLayout({
       data-scroll-behavior="smooth"
       className={`${archivo.variable} ${inter.variable} h-full antialiased`}
     >
-      <body className="min-h-full flex flex-col bg-cream text-ink">
+      <body className="min-h-full flex flex-col overflow-x-clip bg-cream text-ink">
         <Navbar />
         <main className="flex-1">{children}</main>
         <Footer />

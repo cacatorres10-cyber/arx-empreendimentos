@@ -22,7 +22,7 @@ export async function generateMetadata({
   if (!property) return { title: "Empreendimento não encontrado" };
 
   return {
-    title: `${property.title} — ${property.neighborhood}, ${property.city}`,
+    title: `${property.title} · ${property.neighborhood}, ${property.city}`,
     description: property.description,
   };
 }

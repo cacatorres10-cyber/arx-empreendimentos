@@ -118,7 +118,7 @@ export default function Footer() {
           </p>
         </div>
         <p className="mt-4 text-[0.65rem] text-on-night-muted/70">
-          Foto da capa: Balneário de Navegantes — Wikimedia Commons (CC BY-SA
+          Foto da capa: Balneário de Navegantes, Wikimedia Commons (CC BY-SA
           3.0). Imagem provisória, a ser substituída por acervo próprio da ARX.
         </p>
       </div>

@@ -14,7 +14,7 @@ export default function About() {
   return (
     <section id="sobre" className="scroll-mt-24 bg-cream py-24 lg:py-32">
       <div className="mx-auto grid max-w-7xl items-center gap-16 px-5 lg:grid-cols-2 lg:px-8">
-        <Reveal from="right">
+        <Reveal from="up">
           <div className="relative">
             <div className="relative aspect-[4/5] overflow-hidden">
               <Image
@@ -37,7 +37,7 @@ export default function About() {
           </div>
         </Reveal>
 
-        <Reveal from="left">
+        <Reveal from="up" delay={0.1}>
           <span className="eyebrow">Sobre a {site.shortName}</span>
           <h2 className="font-display mt-4 text-4xl text-ink sm:text-5xl">
             Construímos para
@@ -48,7 +48,7 @@ export default function About() {
             Desde {site.foundedYear}, a {site.name} projeta e constrói residências
             e empreendimentos de alto padrão em Navegantes e no litoral de Santa
             Catarina. Unimos arquitetura autoral, engenharia precisa e obra
-            própria para entregar espaços que atravessam o tempo — sólidos,
+            própria para entregar espaços que atravessam o tempo: sólidos,
             atemporais e feitos para viver.
           </p>
 

@@ -2,7 +2,7 @@
 
 /*
   ============================================================
-  DESIGN TOKENS — ARX Empreendimentos.
+  DESIGN TOKENS (ARX Empreendimentos).
   Marca: fundo BRANCO + AZUL + VERMELHO (degradê da logo).
   Para ajustar a paleta, edite só estas variáveis.
   ============================================================
@@ -15,7 +15,7 @@
   --muted: #5a6478; /* texto secundário */
   --line: rgba(15, 27, 51, 0.12); /* bordas suaves */
 
-  /* Escuros (azul-marinho) — hero / rodapé / faixas */
+  /* Escuros (azul-marinho): hero / rodapé / faixas */
   --night: #0a1730;
   --night-2: #112446;
   --on-night: #eef2fb;
@@ -90,7 +90,7 @@ body {
 
 /* Utilitários de marca ------------------------------------ */
 
-/* Sobrelinha em maiúsculas — azul da marca */
+/* Sobrelinha em maiúsculas, azul da marca */
 .eyebrow {
   font-family: var(--font-sans);
   text-transform: uppercase;
@@ -112,7 +112,7 @@ body {
   line-height: 1.05;
 }
 
-/* Wordmark ARX (fallback textual) — degradê azul→vermelho */
+/* Wordmark ARX (fallback textual): degradê azul->vermelho */
 .wordmark {
   font-family: var(--font-display);
   font-weight: 800;

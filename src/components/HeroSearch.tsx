@@ -17,7 +17,7 @@ const TYPES: (PropertyType | "")[] = [
 /**
  * Busca principal (hero). Monta a query e navega para /empreendimentos,
  * que já inicia o catálogo filtrado. Integra com qualquer imóvel presente
- * no catálogo — inclusive os que vierem do painel no futuro.
+ * no catálogo, inclusive os que vierem do painel no futuro.
  */
 export default function HeroSearch() {
   const router = useRouter();
