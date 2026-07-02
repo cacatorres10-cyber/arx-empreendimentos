@@ -37,26 +37,46 @@ type SortKey = (typeof SORTS)[number]["key"];
 
 export default function CatalogClient({
   properties,
+  initial,
 }: {
   properties: Property[];
+  initial?: { q?: string; tipo?: string; cidade?: string; situacao?: string };
 }) {
   const cities = useMemo(
     () => ["Todas", ...Array.from(new Set(properties.map((p) => p.city)))],
     [properties]
   );
 
-  const [type, setType] = useState<(typeof TYPES)[number]>("Todos");
-  const [status, setStatus] = useState<(typeof STATUS)[number]>("Todos");
-  const [city, setCity] = useState("Todas");
+  // Valores iniciais vindos da busca (URL), validados contra as opções.
+  const initType = (TYPES as string[]).includes(initial?.tipo ?? "")
+    ? (initial!.tipo as (typeof TYPES)[number])
+    : "Todos";
+  const initStatus = (STATUS as string[]).includes(initial?.situacao ?? "")
+    ? (initial!.situacao as (typeof STATUS)[number])
+    : "Todos";
+  const initCity = cities.includes(initial?.cidade ?? "")
+    ? (initial!.cidade as string)
+    : "Todas";
+
+  const [q, setQ] = useState(initial?.q ?? "");
+  const [type, setType] = useState<(typeof TYPES)[number]>(initType);
+  const [status, setStatus] = useState<(typeof STATUS)[number]>(initStatus);
+  const [city, setCity] = useState(initCity);
   const [minBedrooms, setMinBedrooms] = useState(0);
   const [sort, setSort] = useState<SortKey>("relevance");
 
   const filtered = useMemo(() => {
+    const term = q.trim().toLowerCase();
     const result = properties.filter((p) => {
       if (type !== "Todos" && p.type !== type) return false;
       if (status !== "Todos" && p.status !== status) return false;
       if (city !== "Todas" && p.city !== city) return false;
       if (minBedrooms > 0 && p.bedrooms < minBedrooms) return false;
+      if (term) {
+        const haystack =
+          `${p.title} ${p.type} ${p.city} ${p.neighborhood} ${p.status}`.toLowerCase();
+        if (!haystack.includes(term)) return false;
+      }
       return true;
     });
 
@@ -72,9 +92,10 @@ export default function CatalogClient({
           (a, b) => Number(b.featured) - Number(a.featured)
         );
     }
-  }, [properties, type, status, city, minBedrooms, sort]);
+  }, [properties, q, type, status, city, minBedrooms, sort]);
 
   const activeReset =
+    q.trim() !== "" ||
     type !== "Todos" ||
     status !== "Todos" ||
     city !== "Todas" ||
@@ -84,6 +105,36 @@ export default function CatalogClient({
     <div className="mx-auto max-w-7xl px-5 lg:px-8">
       {/* Barra de filtros */}
       <div className="border border-line bg-surface p-6 lg:p-8">
+        {/* Busca por palavra-chave */}
+        <div className="mb-6 flex items-center gap-3 border border-line bg-cream px-4 py-3">
+          <svg
+            viewBox="0 0 24 24"
+            className="h-5 w-5 flex-none text-brand"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="2.2"
+            aria-hidden="true"
+          >
+            <circle cx="11" cy="11" r="7" />
+            <path d="m21 21-4.3-4.3" strokeLinecap="round" />
+          </svg>
+          <input
+            value={q}
+            onChange={(e) => setQ(e.target.value)}
+            placeholder="Buscar por nome, bairro, cidade ou tipo de imóvel..."
+            className="w-full bg-transparent text-sm text-ink placeholder:text-muted/70 focus:outline-none"
+          />
+          {q && (
+            <button
+              onClick={() => setQ("")}
+              aria-label="Limpar busca"
+              className="text-muted hover:text-accent"
+            >
+              ✕
+            </button>
+          )}
+        </div>
+
         <div className="grid gap-6 lg:grid-cols-4">
           <Field label="Situação">
             <div className="flex flex-wrap gap-2">
@@ -141,12 +192,13 @@ export default function CatalogClient({
           {activeReset && (
             <button
               onClick={() => {
+                setQ("");
                 setType("Todos");
                 setStatus("Todos");
                 setCity("Todas");
                 setMinBedrooms(0);
               }}
-              className="ml-auto text-xs font-semibold uppercase tracking-widest text-muted transition-colors hover:text-brand-strong"
+              className="ml-auto text-xs font-semibold uppercase tracking-widest text-muted transition-colors hover:text-accent"
             >
               Limpar filtros ✕
             </button>
@@ -229,8 +281,8 @@ function Chip({
       onClick={onClick}
       className={`px-4 py-2 text-sm font-medium transition-colors ${
         active
-          ? "bg-ink text-cream"
-          : "border border-line bg-surface text-ink hover:border-brand hover:text-brand-strong"
+          ? "bg-brand text-white"
+          : "border border-line bg-surface text-ink hover:border-brand hover:text-brand"
       }`}
     >
       {children}

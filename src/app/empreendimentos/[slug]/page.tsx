@@ -102,7 +102,7 @@ export default async function PropertyPage({
           <div className="mb-8 flex flex-wrap items-end justify-between gap-4">
             <div>
               <div className="flex items-center gap-3">
-                <span className="bg-ink px-3 py-1 text-[0.65rem] font-semibold uppercase tracking-widest text-white">
+                <span className="bg-brand px-3 py-1 text-[0.65rem] font-semibold uppercase tracking-widest text-white">
                   {status}
                 </span>
                 <span className="text-xs uppercase tracking-widest text-muted">
@@ -147,7 +147,7 @@ export default async function PropertyPage({
                 <h2 className="font-display text-3xl text-ink">
                   Sobre o empreendimento
                 </h2>
-                <span className="mt-4 block h-px w-16 bg-ink" />
+                <span className="mt-4 block h-px w-16 bg-accent" />
                 <p className="mt-6 text-base leading-relaxed text-muted">
                   {description}
                 </p>
@@ -155,14 +155,14 @@ export default async function PropertyPage({
 
               <div className="mt-12">
                 <h2 className="font-display text-3xl text-ink">Diferenciais</h2>
-                <span className="mt-4 block h-px w-16 bg-ink" />
+                <span className="mt-4 block h-px w-16 bg-accent" />
                 <ul className="mt-6 grid gap-3 sm:grid-cols-2">
                   {features.map((f) => (
                     <li
                       key={f}
                       className="flex items-center gap-3 border border-line bg-surface px-4 py-3 text-sm text-ink"
                     >
-                      <span className="flex h-5 w-5 flex-none items-center justify-center bg-ink text-[0.7rem] text-white">
+                      <span className="flex h-5 w-5 flex-none items-center justify-center bg-brand text-[0.7rem] text-white">
                         ✓
                       </span>
                       {f}
@@ -195,7 +195,7 @@ export default async function PropertyPage({
                   href={`mailto:${site.email}?subject=${encodeURIComponent(
                     `Interesse: ${title}`
                   )}`}
-                  className="mt-3 flex w-full items-center justify-center gap-2 border border-ink/20 py-4 text-sm font-semibold uppercase tracking-widest text-ink transition-colors hover:border-ink hover:bg-ink hover:text-white"
+                  className="mt-3 flex w-full items-center justify-center gap-2 border border-ink/20 py-4 text-sm font-semibold uppercase tracking-widest text-ink transition-colors hover:border-brand hover:bg-brand hover:text-white"
                 >
                   Enviar e-mail
                 </a>

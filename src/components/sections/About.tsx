@@ -42,7 +42,7 @@ export default function About() {
           <h2 className="font-display mt-4 text-4xl text-ink sm:text-5xl">
             Construímos para
             <br />
-            <span className="text-muted">durar</span>
+            <span className="text-brand">durar</span>
           </h2>
           <p className="mt-6 text-base leading-relaxed text-muted">
             Desde {site.foundedYear}, a {site.name} projeta e constrói residências
@@ -55,7 +55,7 @@ export default function About() {
           <ul className="mt-8 space-y-4">
             {pillars.map((p) => (
               <li key={p} className="flex items-start gap-3">
-                <span className="mt-1 flex h-5 w-5 flex-none items-center justify-center bg-ink text-[0.7rem] text-white">
+                <span className="mt-1 flex h-5 w-5 flex-none items-center justify-center bg-brand text-[0.7rem] text-white">
                   ✓
                 </span>
                 <span className="text-sm text-ink">{p}</span>
@@ -69,7 +69,7 @@ export default function About() {
             )}
             target="_blank"
             rel="noopener noreferrer"
-            className="mt-10 inline-flex items-center gap-2 bg-ink px-8 py-4 text-sm font-semibold uppercase tracking-widest text-white transition-colors hover:bg-brand-strong"
+            className="mt-10 inline-flex items-center gap-2 bg-brand px-8 py-4 text-sm font-semibold uppercase tracking-widest text-white transition-colors hover:bg-brand-strong"
           >
             Conhecer a construtora
           </a>

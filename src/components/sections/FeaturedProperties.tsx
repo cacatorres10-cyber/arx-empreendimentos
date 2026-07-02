@@ -27,7 +27,7 @@ export default function FeaturedProperties() {
         <div className="mt-14 flex justify-center">
           <Link
             href="/empreendimentos"
-            className="group inline-flex items-center gap-2 border border-ink/20 px-8 py-4 text-sm font-semibold uppercase tracking-widest text-ink transition-colors hover:border-ink hover:bg-ink hover:text-white"
+            className="group inline-flex items-center gap-2 border border-ink/20 px-8 py-4 text-sm font-semibold uppercase tracking-widest text-ink transition-colors hover:border-brand hover:bg-brand hover:text-white"
           >
             Ver todos os empreendimentos
             <span className="transition-transform duration-300 group-hover:translate-x-1">

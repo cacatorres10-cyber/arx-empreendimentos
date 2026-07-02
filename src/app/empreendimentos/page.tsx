@@ -8,7 +8,21 @@ export const metadata: Metadata = {
   description: `Conheça os empreendimentos da ${site.name} em ${site.city} e no litoral de Santa Catarina. Lançamentos, obras em andamento e prontos para morar. Filtre por tipo, cidade e situação.`,
 };
 
-export default function EmpreendimentosPage() {
+export default async function EmpreendimentosPage({
+  searchParams,
+}: {
+  searchParams: Promise<{ [key: string]: string | string[] | undefined }>;
+}) {
+  const sp = await searchParams;
+  const first = (v: string | string[] | undefined) =>
+    Array.isArray(v) ? v[0] : v ?? "";
+  const initial = {
+    q: first(sp.q),
+    tipo: first(sp.tipo),
+    cidade: first(sp.cidade),
+    situacao: first(sp.situacao),
+  };
+
   return (
     <>
       <section className="bg-night pt-36 pb-16 lg:pt-44 lg:pb-20">
@@ -25,7 +39,11 @@ export default function EmpreendimentosPage() {
       </section>
 
       <section className="bg-cream py-12 lg:py-16">
-        <CatalogClient properties={properties} />
+        <CatalogClient
+          key={`${initial.q}|${initial.tipo}|${initial.cidade}|${initial.situacao}`}
+          properties={properties}
+          initial={initial}
+        />
       </section>
     </>
   );

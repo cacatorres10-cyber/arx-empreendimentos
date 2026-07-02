@@ -2,36 +2,40 @@
 
 /*
   ============================================================
-  DESIGN TOKENS — identidade ARX Construtora (monocromática).
-  Paleta estritamente P&B + concreto/grafite, estilo estúdio
-  de arquitetura. Para ajustar a marca, edite só estas vars.
+  DESIGN TOKENS — ARX Empreendimentos.
+  Marca: fundo BRANCO + AZUL + VERMELHO (degradê da logo).
+  Para ajustar a paleta, edite só estas variáveis.
   ============================================================
 */
 :root {
-  /* Claros (concreto / papel) */
-  --cream: #f4f3f0; /* fundo claro de seções */
-  --surface: #ffffff; /* cartões */
-  --ink: #101216; /* texto principal (quase preto) */
-  --muted: #6c6f76; /* texto secundário */
-  --line: rgba(16, 18, 22, 0.12); /* bordas suaves */
+  /* Claros */
+  --cream: #f3f6fc; /* fundo claro de seções (azul levíssimo) */
+  --surface: #ffffff; /* cartões / seções brancas */
+  --ink: #0f1b33; /* texto principal (azul-marinho escuro) */
+  --muted: #5a6478; /* texto secundário */
+  --line: rgba(15, 27, 51, 0.12); /* bordas suaves */
 
-  /* Escuros (grafite) — hero / rodapé */
-  --night: #0d0e11;
-  --night-2: #17191d;
-  --on-night: #f2f1ee;
-  --on-night-muted: #9a9da3;
+  /* Escuros (azul-marinho) — hero / rodapé / faixas */
+  --night: #0a1730;
+  --night-2: #112446;
+  --on-night: #eef2fb;
+  --on-night-muted: #9db0d2;
 
-  /* Acento monocromático, sensível ao contexto:
-     escuro sobre claro, claro sobre escuro. */
-  --brand: #101216; /* acento em fundos CLAROS */
-  --brand-strong: #000000;
-  --brand-soft: #dedfdc; /* preenchimento neutro sutil */
-  --brand-on-night: #ffffff; /* acento em fundos ESCUROS */
+  /* AZUL (primária da marca) */
+  --brand: #1b3fa0;
+  --brand-strong: #142f7a;
+  --brand-soft: #dbe3f7;
+  --brand-on-night: #ffffff;
 
-  --background: var(--cream);
+  /* VERMELHO (acento da marca) */
+  --accent: #e01222;
+  --accent-strong: #b40d1a;
+  --accent-soft: #f7dcdf;
+
+  --background: var(--surface);
   --foreground: var(--ink);
 
-  --radius: 0px; /* cantos retos, arquitetônico */
+  --radius: 4px;
 }
 
 /* Mapeia tokens para utilitários do Tailwind v4 */
@@ -55,7 +59,11 @@
   --color-brand-soft: var(--brand-soft);
   --color-brand-on-night: var(--brand-on-night);
 
-  --font-display: var(--font-archivo), "Arial Narrow", sans-serif;
+  --color-accent: var(--accent);
+  --color-accent-strong: var(--accent-strong);
+  --color-accent-soft: var(--accent-soft);
+
+  --font-display: var(--font-archivo), "Arial", sans-serif;
   --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
 }
 
@@ -76,48 +84,44 @@ body {
 }
 
 ::selection {
-  background: var(--ink);
+  background: var(--brand);
   color: #fff;
 }
 
 /* Utilitários de marca ------------------------------------ */
 
-/* Sobrelinha em maiúsculas com muito tracking — arquitetônica */
+/* Sobrelinha em maiúsculas — azul da marca */
 .eyebrow {
   font-family: var(--font-sans);
   text-transform: uppercase;
-  letter-spacing: 0.3em;
-  font-size: 0.7rem;
-  font-weight: 600;
-  color: var(--ink);
+  letter-spacing: 0.26em;
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: var(--brand);
 }
 
 .eyebrow-on-night {
   color: var(--on-night);
 }
 
-/* Títulos: geométrica, condensada, forte (eco do wordmark ARX) */
+/* Títulos: Archivo forte, caixa mista (leitura limpa) */
 .font-display {
   font-family: var(--font-display);
   font-weight: 700;
-  letter-spacing: -0.015em;
-  line-height: 1.02;
-  text-transform: uppercase;
+  letter-spacing: -0.02em;
+  line-height: 1.05;
 }
 
-/* Wordmark ARX — letras largas como no logo */
+/* Wordmark ARX (fallback textual) — degradê azul→vermelho */
 .wordmark {
   font-family: var(--font-display);
   font-weight: 800;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-}
-
-/* Filete decorativo */
-.hairline {
-  height: 1px;
-  background: currentColor;
-  opacity: 0.5;
+  font-style: italic;
+  letter-spacing: 0.02em;
+  background: linear-gradient(95deg, var(--brand) 20%, var(--accent) 90%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
 }
 
 /* Scrollbar discreta */
@@ -125,11 +129,11 @@ body {
   width: 10px;
 }
 ::-webkit-scrollbar-thumb {
-  background: var(--muted);
-  border-radius: 0;
+  background: var(--brand-soft);
+  border-radius: 999px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: var(--ink);
+  background: var(--brand);
 }
 
 @media (prefers-reduced-motion: reduce) {

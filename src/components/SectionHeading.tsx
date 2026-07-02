@@ -42,9 +42,7 @@ export default function SectionHeading({
         </p>
       )}
       <span
-        className={`mt-6 h-px w-16 ${centered ? "mx-auto" : ""} ${
-          onNight ? "bg-brand-on-night" : "bg-brand"
-        }`}
+        className={`mt-6 h-0.5 w-16 ${centered ? "mx-auto" : ""} bg-accent`}
       />
     </Reveal>
   );

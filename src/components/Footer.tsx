@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Logo from "@/components/Logo";
 import { site, whatsappLink } from "@/lib/site";
 
 export default function Footer() {
@@ -10,10 +11,7 @@ export default function Footer() {
         <div className="grid gap-12 md:grid-cols-2 lg:grid-cols-4">
           {/* Marca */}
           <div className="lg:col-span-1">
-            <p className="wordmark text-4xl leading-none">{site.shortName}</p>
-            <p className="mt-1 text-[0.6rem] uppercase tracking-[0.5em] text-on-night-muted">
-              Construtora
-            </p>
+            <Logo size="2.4rem" onDark />
             <p className="mt-6 max-w-xs text-sm leading-relaxed text-on-night-muted">
               Construtora e incorporadora de alto padrão em {site.city} e no
               litoral de Santa Catarina. Do projeto à entrega, obra própria.

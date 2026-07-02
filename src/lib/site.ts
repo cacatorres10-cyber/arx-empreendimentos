@@ -3,9 +3,9 @@
  * Ajuste telefone/textos quando confirmar os dados finais.
  */
 export const site = {
-  name: "ARX Construtora",
+  name: "ARX Empreendimentos",
   shortName: "ARX",
-  tagline: "Arquitetura de alto padrão em Navegantes",
+  tagline: "Construtora e incorporadora em Navegantes",
   city: "Navegantes",
   region: "SC",
   // WhatsApp internacional, só dígitos (55 = Brasil, 47 = DDD).
