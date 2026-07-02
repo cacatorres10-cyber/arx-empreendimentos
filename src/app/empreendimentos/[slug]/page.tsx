@@ -4,6 +4,7 @@ import { notFound } from "next/navigation";
 import PropertyGallery from "@/components/PropertyGallery";
 import PropertyCard from "@/components/PropertyCard";
 import Reveal from "@/components/motion/Reveal";
+import DrawLine from "@/components/motion/DrawLine";
 import { getProperty, properties } from "@/data/properties";
 import { formatArea, formatPrice } from "@/lib/format";
 import { site, whatsappLink } from "@/lib/site";
@@ -147,7 +148,7 @@ export default async function PropertyPage({
                 <h2 className="font-display text-3xl text-ink">
                   Sobre o empreendimento
                 </h2>
-                <span className="mt-4 block h-px w-16 bg-accent" />
+                <DrawLine className="mt-4" />
                 <p className="mt-6 text-base leading-relaxed text-muted">
                   {description}
                 </p>
@@ -155,7 +156,7 @@ export default async function PropertyPage({
 
               <div className="mt-12">
                 <h2 className="font-display text-3xl text-ink">Diferenciais</h2>
-                <span className="mt-4 block h-px w-16 bg-accent" />
+                <DrawLine className="mt-4" />
                 <ul className="mt-6 grid gap-3 sm:grid-cols-2">
                   {features.map((f) => (
                     <li
@@ -217,7 +218,7 @@ export default async function PropertyPage({
             <h2 className="font-display text-3xl text-ink sm:text-4xl">
               Outros empreendimentos
             </h2>
-            <span className="mt-4 block h-px w-16 bg-ink" />
+            <DrawLine className="mt-4" />
           </Reveal>
           <div className="mt-12 grid gap-8 md:grid-cols-2 lg:grid-cols-3">
             {relatedFallback.map((p) => (

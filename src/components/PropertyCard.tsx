@@ -47,6 +47,7 @@ export default function PropertyCard({ property }: { property: Property }) {
           className="object-cover transition-transform duration-[1200ms] ease-out group-hover:scale-105"
         />
         <div className="absolute inset-0 bg-gradient-to-t from-black/25 to-transparent opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
+        <span className="sheen" aria-hidden />
         <span className="absolute left-4 top-4 bg-brand px-3 py-1 text-[0.65rem] font-semibold uppercase tracking-widest text-white">
           {status}
         </span>

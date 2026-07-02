@@ -10,8 +10,9 @@ const stats = [
 
 export default function Stats() {
   return (
-    <section className="bg-night py-20 lg:py-24">
-      <div className="mx-auto max-w-7xl px-5 lg:px-8">
+    <section className="relative overflow-hidden bg-night py-20 lg:py-24">
+      <div className="aurora" aria-hidden />
+      <div className="relative z-10 mx-auto max-w-7xl px-5 lg:px-8">
         <div className="grid grid-cols-2 gap-y-12 lg:grid-cols-4">
           {stats.map((s, i) => (
             <Reveal

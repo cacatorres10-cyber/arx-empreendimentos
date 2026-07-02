@@ -5,6 +5,8 @@ import { site } from "@/lib/site";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import WhatsAppFloat from "@/components/WhatsAppFloat";
+import ScrollProgress from "@/components/motion/ScrollProgress";
+import BackToTop from "@/components/motion/BackToTop";
 
 const archivo = Archivo({
   subsets: ["latin"],
@@ -47,10 +49,12 @@ export default function RootLayout({
       className={`${archivo.variable} ${inter.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col overflow-x-clip bg-cream text-ink">
+        <ScrollProgress />
         <Navbar />
         <main className="flex-1">{children}</main>
         <Footer />
         <WhatsAppFloat />
+        <BackToTop />
       </body>
     </html>
   );

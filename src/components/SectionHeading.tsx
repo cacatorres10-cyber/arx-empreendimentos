@@ -1,4 +1,5 @@
 import Reveal from "@/components/motion/Reveal";
+import DrawLine from "@/components/motion/DrawLine";
 
 interface SectionHeadingProps {
   eyebrow: string;
@@ -41,9 +42,7 @@ export default function SectionHeading({
           {description}
         </p>
       )}
-      <span
-        className={`mt-6 h-0.5 w-16 ${centered ? "mx-auto" : ""} bg-accent`}
-      />
+      <DrawLine className={`mt-6 ${centered ? "mx-auto" : ""}`} />
     </Reveal>
   );
 }

@@ -32,8 +32,12 @@ export default function ContactCTA() {
   }
 
   return (
-    <section id="contato" className="scroll-mt-24 bg-night py-24 lg:py-32">
-      <div className="mx-auto grid max-w-7xl items-center gap-16 px-5 lg:grid-cols-2 lg:px-8">
+    <section
+      id="contato"
+      className="relative scroll-mt-24 overflow-hidden bg-night py-24 lg:py-32"
+    >
+      <div className="aurora" aria-hidden />
+      <div className="relative z-10 mx-auto grid max-w-7xl items-center gap-16 px-5 lg:grid-cols-2 lg:px-8">
         {/* Texto */}
         <div>
           <span className="eyebrow eyebrow-on-night">Fale com a ARX</span>

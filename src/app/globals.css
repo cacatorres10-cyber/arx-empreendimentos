@@ -136,8 +136,85 @@ body {
   background: var(--brand);
 }
 
+/* Brilho "aurora" decorativo para seções escuras --------- */
+.aurora {
+  position: absolute;
+  inset: -20%;
+  pointer-events: none;
+  overflow: hidden;
+  z-index: 0;
+}
+.aurora::before,
+.aurora::after {
+  content: "";
+  position: absolute;
+  width: 45vw;
+  height: 45vw;
+  max-width: 640px;
+  max-height: 640px;
+  border-radius: 9999px;
+  filter: blur(90px);
+  opacity: 0.28;
+  will-change: transform;
+}
+.aurora::before {
+  left: -6%;
+  top: -10%;
+  background: var(--brand);
+  animation: aurora-a 18s ease-in-out infinite alternate;
+}
+.aurora::after {
+  right: -6%;
+  bottom: -10%;
+  background: var(--accent);
+  opacity: 0.2;
+  animation: aurora-b 22s ease-in-out infinite alternate;
+}
+
+@keyframes aurora-a {
+  from {
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+  to {
+    transform: translate3d(12%, 16%, 0) scale(1.25);
+  }
+}
+@keyframes aurora-b {
+  from {
+    transform: translate3d(0, 0, 0) scale(1.1);
+  }
+  to {
+    transform: translate3d(-14%, -12%, 0) scale(1);
+  }
+}
+
+/* Sheen (brilho diagonal) que cruza o card no hover */
+.sheen {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: linear-gradient(
+    100deg,
+    transparent 30%,
+    rgba(255, 255, 255, 0.35) 50%,
+    transparent 70%
+  );
+  transform: translateX(-120%);
+  transition: transform 0.9s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.group:hover .sheen {
+  transform: translateX(120%);
+}
+
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;
+  }
+  .aurora::before,
+  .aurora::after {
+    animation: none;
+  }
+  .sheen {
+    display: none;
   }
 }

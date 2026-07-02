@@ -1,7 +1,12 @@
 "use client";
 
 import Image from "next/image";
-import { motion, useScroll, useTransform } from "motion/react";
+import {
+  motion,
+  useReducedMotion,
+  useScroll,
+  useTransform,
+} from "motion/react";
 import { useRef } from "react";
 import HeroSearch from "@/components/HeroSearch";
 
@@ -14,6 +19,7 @@ export default function Hero() {
     offset: ["start start", "end start"],
   });
   const y = useTransform(scrollYProgress, [0, 1], ["0%", "16%"]);
+  const reduce = useReducedMotion();
 
   return (
     <section
@@ -21,14 +27,29 @@ export default function Hero() {
       className="relative flex min-h-[100svh] items-center overflow-hidden bg-night"
     >
       <motion.div style={{ y }} className="absolute inset-0">
-        <Image
-          src="/hero-navegantes.jpg"
-          alt="Praia de Navegantes, Santa Catarina"
-          fill
-          priority
-          sizes="100vw"
-          className="object-cover"
-        />
+        <motion.div
+          className="absolute inset-0"
+          animate={reduce ? undefined : { scale: [1, 1.09] }}
+          transition={
+            reduce
+              ? undefined
+              : {
+                  duration: 22,
+                  repeat: Infinity,
+                  repeatType: "reverse",
+                  ease: "easeInOut",
+                }
+          }
+        >
+          <Image
+            src="/hero-navegantes.jpg"
+            alt="Praia de Navegantes, Santa Catarina"
+            fill
+            priority
+            sizes="100vw"
+            className="object-cover"
+          />
+        </motion.div>
       </motion.div>
 
       {/* Overlays azul-marinho para legibilidade sobre a foto */}
