@@ -20,10 +20,10 @@ export default function Hero() {
       ref={ref}
       className="relative flex min-h-[100svh] items-center overflow-hidden bg-night"
     >
-      <motion.div style={{ y }} className="absolute inset-0 -z-10">
+      <motion.div style={{ y }} className="absolute inset-0">
         <Image
-          src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=2400&q=80"
-          alt="Empreendimento de alto padrão da ARX"
+          src="/hero-navegantes.jpg"
+          alt="Praia de Navegantes, Santa Catarina"
           fill
           priority
           sizes="100vw"
@@ -31,11 +31,11 @@ export default function Hero() {
         />
       </motion.div>
 
-      {/* Overlays azul-marinho para legibilidade */}
-      <div className="absolute inset-0 -z-10 bg-gradient-to-r from-night via-night/80 to-night/30" />
-      <div className="absolute inset-0 -z-10 bg-gradient-to-t from-night via-transparent to-night/50" />
+      {/* Overlays azul-marinho para legibilidade sobre a foto */}
+      <div className="absolute inset-0 bg-gradient-to-r from-night via-night/80 to-night/30" />
+      <div className="absolute inset-0 bg-gradient-to-t from-night/90 via-transparent to-night/40" />
 
-      <div className="mx-auto w-full max-w-7xl px-5 pt-28 pb-16 lg:px-8">
+      <div className="relative z-10 mx-auto w-full max-w-7xl px-5 pt-28 pb-16 lg:px-8">
         <div className="max-w-3xl">
           <motion.p
             initial={{ opacity: 0, y: 16 }}
