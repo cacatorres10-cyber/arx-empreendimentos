@@ -1,0 +1,139 @@
+@import "tailwindcss";
+
+/*
+  ============================================================
+  DESIGN TOKENS — identidade ARX Construtora (monocromática).
+  Paleta estritamente P&B + concreto/grafite, estilo estúdio
+  de arquitetura. Para ajustar a marca, edite só estas vars.
+  ============================================================
+*/
+:root {
+  /* Claros (concreto / papel) */
+  --cream: #f4f3f0; /* fundo claro de seções */
+  --surface: #ffffff; /* cartões */
+  --ink: #101216; /* texto principal (quase preto) */
+  --muted: #6c6f76; /* texto secundário */
+  --line: rgba(16, 18, 22, 0.12); /* bordas suaves */
+
+  /* Escuros (grafite) — hero / rodapé */
+  --night: #0d0e11;
+  --night-2: #17191d;
+  --on-night: #f2f1ee;
+  --on-night-muted: #9a9da3;
+
+  /* Acento monocromático, sensível ao contexto:
+     escuro sobre claro, claro sobre escuro. */
+  --brand: #101216; /* acento em fundos CLAROS */
+  --brand-strong: #000000;
+  --brand-soft: #dedfdc; /* preenchimento neutro sutil */
+  --brand-on-night: #ffffff; /* acento em fundos ESCUROS */
+
+  --background: var(--cream);
+  --foreground: var(--ink);
+
+  --radius: 0px; /* cantos retos, arquitetônico */
+}
+
+/* Mapeia tokens para utilitários do Tailwind v4 */
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+
+  --color-cream: var(--cream);
+  --color-surface: var(--surface);
+  --color-ink: var(--ink);
+  --color-muted: var(--muted);
+  --color-line: var(--line);
+
+  --color-night: var(--night);
+  --color-night-2: var(--night-2);
+  --color-on-night: var(--on-night);
+  --color-on-night-muted: var(--on-night-muted);
+
+  --color-brand: var(--brand);
+  --color-brand-strong: var(--brand-strong);
+  --color-brand-soft: var(--brand-soft);
+  --color-brand-on-night: var(--brand-on-night);
+
+  --font-display: var(--font-archivo), "Arial Narrow", sans-serif;
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+}
+
+* {
+  border-color: var(--line);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+::selection {
+  background: var(--ink);
+  color: #fff;
+}
+
+/* Utilitários de marca ------------------------------------ */
+
+/* Sobrelinha em maiúsculas com muito tracking — arquitetônica */
+.eyebrow {
+  font-family: var(--font-sans);
+  text-transform: uppercase;
+  letter-spacing: 0.3em;
+  font-size: 0.7rem;
+  font-weight: 600;
+  color: var(--ink);
+}
+
+.eyebrow-on-night {
+  color: var(--on-night);
+}
+
+/* Títulos: geométrica, condensada, forte (eco do wordmark ARX) */
+.font-display {
+  font-family: var(--font-display);
+  font-weight: 700;
+  letter-spacing: -0.015em;
+  line-height: 1.02;
+  text-transform: uppercase;
+}
+
+/* Wordmark ARX — letras largas como no logo */
+.wordmark {
+  font-family: var(--font-display);
+  font-weight: 800;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+/* Filete decorativo */
+.hairline {
+  height: 1px;
+  background: currentColor;
+  opacity: 0.5;
+}
+
+/* Scrollbar discreta */
+::-webkit-scrollbar {
+  width: 10px;
+}
+::-webkit-scrollbar-thumb {
+  background: var(--muted);
+  border-radius: 0;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--ink);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
