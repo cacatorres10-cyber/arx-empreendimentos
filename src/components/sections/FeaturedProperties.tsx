@@ -1,6 +1,7 @@
 import Link from "next/link";
 import SectionHeading from "@/components/SectionHeading";
 import PropertyCard from "@/components/PropertyCard";
+import TiltCard from "@/components/motion/TiltCard";
 import { RevealGroup, RevealItem } from "@/components/motion/Reveal";
 import { featuredProperties } from "@/data/properties";
 
@@ -19,7 +20,9 @@ export default function FeaturedProperties() {
         <RevealGroup className="mt-16 grid gap-8 md:grid-cols-2 lg:grid-cols-3">
           {items.map((property) => (
             <RevealItem key={property.slug} className="h-full">
-              <PropertyCard property={property} />
+              <TiltCard className="h-full">
+                <PropertyCard property={property} />
+              </TiltCard>
             </RevealItem>
           ))}
         </RevealGroup>

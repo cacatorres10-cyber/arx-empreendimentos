@@ -48,7 +48,8 @@ export default function PropertyCard({ property }: { property: Property }) {
         />
         <div className="absolute inset-0 bg-gradient-to-t from-black/25 to-transparent opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
         <span className="sheen" aria-hidden />
-        <span className="absolute left-4 top-4 bg-brand px-3 py-1 text-[0.65rem] font-semibold uppercase tracking-widest text-white">
+        <span className="absolute left-4 top-4 flex items-center gap-2 bg-brand px-3 py-1 text-[0.65rem] font-semibold uppercase tracking-widest text-white">
+          <span className="pulse-dot relative inline-block h-1.5 w-1.5 rounded-full bg-white text-white" />
           {status}
         </span>
         <span className="absolute right-4 top-4 bg-black/55 px-3 py-1 text-[0.65rem] font-medium uppercase tracking-widest text-white backdrop-blur-sm">

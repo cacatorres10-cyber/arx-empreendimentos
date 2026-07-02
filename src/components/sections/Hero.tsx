@@ -12,6 +12,16 @@ import HeroSearch from "@/components/HeroSearch";
 
 const ease = [0.22, 1, 0.36, 1] as const;
 
+const wordContainer = {
+  hidden: {},
+  show: { transition: { staggerChildren: 0.06, delayChildren: 0.15 } },
+};
+const wordItem = {
+  hidden: { opacity: 0, y: "0.5em" },
+  show: { opacity: 1, y: 0, transition: { duration: 0.6, ease } },
+};
+const headline = "Encontre o imóvel dos seus sonhos no litoral de".split(" ");
+
 export default function Hero() {
   const ref = useRef<HTMLElement>(null);
   const { scrollYProgress } = useScroll({
@@ -67,16 +77,26 @@ export default function Hero() {
             Construtora e Incorporadora · Navegantes/SC
           </motion.p>
 
-          <motion.h1
-            initial={{ opacity: 0, y: 24 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.9, delay: 0.1, ease }}
-            className="font-display mt-5 text-4xl leading-[1.05] text-on-night sm:text-5xl lg:text-6xl"
-          >
-            Encontre o imóvel dos seus sonhos
-            <br className="hidden sm:block" /> no litoral de{" "}
-            <span className="text-accent">Santa Catarina</span>
-          </motion.h1>
+          <h1 className="font-display mt-5 text-4xl leading-[1.08] text-on-night sm:text-5xl lg:text-6xl">
+            <motion.span
+              variants={wordContainer}
+              initial="hidden"
+              animate="show"
+              className="inline-flex flex-wrap gap-x-[0.28em] gap-y-1 sm:gap-y-2"
+            >
+              {headline.map((w, i) => (
+                <motion.span key={i} variants={wordItem} className="inline-block">
+                  {w}
+                </motion.span>
+              ))}
+              <motion.span
+                variants={wordItem}
+                className="text-shimmer inline-block"
+              >
+                Santa Catarina
+              </motion.span>
+            </motion.span>
+          </h1>
 
           <motion.p
             initial={{ opacity: 0, y: 24 }}

@@ -3,6 +3,7 @@
 import { useMemo, useState } from "react";
 import { AnimatePresence, motion } from "motion/react";
 import PropertyCard from "@/components/PropertyCard";
+import TiltCard from "@/components/motion/TiltCard";
 import type {
   Property,
   PropertyStatus,
@@ -231,7 +232,9 @@ export default function CatalogClient({
                 transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
                 className="h-full"
               >
-                <PropertyCard property={property} />
+                <TiltCard className="h-full">
+                  <PropertyCard property={property} />
+                </TiltCard>
               </motion.div>
             ))}
           </AnimatePresence>

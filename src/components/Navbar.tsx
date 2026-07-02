@@ -5,6 +5,7 @@ import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 import { AnimatePresence, motion } from "motion/react";
 import Logo from "@/components/Logo";
+import Magnetic from "@/components/motion/Magnetic";
 import { site, whatsappLink } from "@/lib/site";
 
 const links = [
@@ -55,16 +56,18 @@ export default function Navbar() {
         </ul>
 
         <div className="flex items-center gap-3">
-          <a
-            href={whatsappLink(
-              `Olá, ${site.name}! Gostaria de falar com um consultor.`
-            )}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="hidden rounded-[var(--radius)] bg-accent px-5 py-2.5 text-sm font-semibold text-white shadow-sm transition-colors hover:bg-accent-strong sm:inline-block"
-          >
-            Fale com a ARX
-          </a>
+          <Magnetic className="hidden sm:inline-block">
+            <a
+              href={whatsappLink(
+                `Olá, ${site.name}! Gostaria de falar com um consultor.`
+              )}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="pulse-glow inline-block rounded-[var(--radius)] bg-accent px-5 py-2.5 text-sm font-semibold text-white transition-colors hover:bg-accent-strong"
+            >
+              Fale com a ARX
+            </a>
+          </Magnetic>
 
           {/* Botão mobile */}
           <button
