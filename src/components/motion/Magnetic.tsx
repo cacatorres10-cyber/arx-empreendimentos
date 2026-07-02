@@ -1,5 +1,6 @@
 "use client";
 
+import { useEffect, useState } from "react";
 import {
   motion,
   useMotionValue,
@@ -19,12 +20,17 @@ export default function Magnetic({
   strength?: number;
 }) {
   const reduce = useReducedMotion();
+  const [mounted, setMounted] = useState(false);
+  useEffect(() => setMounted(true), []);
+
   const x = useMotionValue(0);
   const y = useMotionValue(0);
   const sx = useSpring(x, { stiffness: 220, damping: 16, mass: 0.4 });
   const sy = useSpring(y, { stiffness: 220, damping: 16, mass: 0.4 });
 
-  if (reduce) return <div className={className}>{children}</div>;
+  if (!mounted || reduce) {
+    return <div className={`inline-block ${className ?? ""}`}>{children}</div>;
+  }
 
   return (
     <motion.div

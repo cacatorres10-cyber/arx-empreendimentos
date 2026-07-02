@@ -1,5 +1,6 @@
 "use client";
 
+import { useEffect, useState } from "react";
 import {
   motion,
   useMotionTemplate,
@@ -19,13 +20,16 @@ export default function TiltCard({
   className?: string;
 }) {
   const reduce = useReducedMotion();
+  // Só ativa após montar no cliente para não divergir do HTML do servidor.
+  const [mounted, setMounted] = useState(false);
+  useEffect(() => setMounted(true), []);
+
   const px = useMotionValue(0.5);
   const py = useMotionValue(0.5);
   const glareOpacity = useSpring(useMotionValue(0), {
     stiffness: 200,
     damping: 25,
   });
-
   const rotateX = useSpring(useTransform(py, [0, 1], [7, -7]), {
     stiffness: 200,
     damping: 18,
@@ -38,7 +42,9 @@ export default function TiltCard({
   const glareY = useTransform(py, [0, 1], ["0%", "100%"]);
   const glare = useMotionTemplate`radial-gradient(240px circle at ${glareX} ${glareY}, rgba(255,255,255,0.3), transparent 60%)`;
 
-  if (reduce) return <div className={className}>{children}</div>;
+  if (!mounted || reduce) {
+    return <div className={className}>{children}</div>;
+  }
 
   return (
     <motion.div
